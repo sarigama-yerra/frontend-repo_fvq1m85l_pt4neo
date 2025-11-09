@@ -1,28 +1,39 @@
-import { useState } from 'react'
+import React from 'react';
+import HeroCover from './components/HeroCover';
+import FeaturesGrid from './components/FeaturesGrid';
+import CTASection from './components/CTASection';
+import Footer from './components/Footer';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Header() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-black/50 backdrop-blur">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3 text-white">
+        <a href="#home" className="text-base font-semibold tracking-tight">FluxRide</a>
+        <nav className="hidden items-center gap-6 text-sm text-white/80 sm:flex">
+          <a href="#features" className="hover:text-white">Features</a>
+          <a href="#rider" className="hover:text-white">Rider</a>
+          <a href="#driver" className="hover:text-white">Driver</a>
+          <a href="#support" className="hover:text-white">Support</a>
+        </nav>
+        <div className="flex items-center gap-3">
+          <a href="#login" className="rounded-md border border-white/20 px-3 py-1.5 text-xs font-medium text-white hover:bg-white/10">Sign in</a>
+          <a href="#get-started" className="rounded-md bg-white px-3 py-1.5 text-xs font-semibold text-black hover:bg-white/90">Get started</a>
         </div>
       </div>
-    </div>
-  )
+    </header>
+  );
 }
 
-export default App
+export default function App() {
+  return (
+    <div className="min-h-screen w-full bg-black font-inter text-white">
+      <Header />
+      <main className="pt-14">
+        <HeroCover />
+        <FeaturesGrid />
+        <CTASection />
+      </main>
+      <Footer />
+    </div>
+  );
+}
